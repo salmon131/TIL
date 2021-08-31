@@ -13,9 +13,9 @@ def hansoo_checker(num: str):
 
         # 등차 초기화
         if idx == 1:
-            diff = abs(pre-nex)
+            diff = pre-nex
         
-        if diff != abs(pre-nex) : return 0
+        if diff != (pre-nex) : return 0
 
         # 자리수 하나 오른쪽 이동
         pre = nex
@@ -35,5 +35,4 @@ def count_hansoo(N: str):
     return count
 
 N = input()
-print(hansoo_checker('11'))
-# print(count_hansoo(N))
+print(count_hansoo(N))
