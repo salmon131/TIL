@@ -6,12 +6,13 @@ def hansoo_checker(num: str):
     parmam : string type number
     return : boolean
     """
-    # 첫째 자리 수는 다음 자리가 없으므로 비교할 수를 0으로 초기화
+    # 첫째 자리 수를 pre로 초기화
     pre = int(num[0])
+    # 둘째 자리 수를 nex로 설정하고 반복시작
     for idx in range(1, len(num)):
         nex = int(num[idx])
 
-        # 등차 초기화
+        # 첫 수행시 등차 초기화 
         if idx == 1:
             diff = pre-nex
         
@@ -34,5 +35,6 @@ def count_hansoo(N: str):
     
     return count
 
-N = input()
-print(count_hansoo(N))
+if __name__=="__main__":
+    N = input()
+    print(count_hansoo(N))
