@@ -1,4 +1,3 @@
-'''my code'''
 N = input()
 link_num = input()
 sum = 0
