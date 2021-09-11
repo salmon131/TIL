@@ -51,3 +51,26 @@ for char in string:
 ```
 cccbbbaaa
 ```
+---
+*(5622_다이얼 문제 中)*
+
+🗸 `enumerate`
+* 반복문 사용 시 몇 번째 반복문인지 확인이 필요할 때
+* 인덱스 번호와 컬렉션의 원소를 tuple형태로 반환
+```
+alphabet = ['abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+
+for i, alpha in enumerate(alphabet):
+    print(i, alpha)
+```
+출력 결과
+```
+0 abc
+1 def
+2 ghi
+3 jkl
+4 mno
+5 pqrs
+6 tuv
+7 wxyz
+```
