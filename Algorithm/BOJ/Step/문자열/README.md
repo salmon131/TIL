@@ -74,3 +74,28 @@ for i, alpha in enumerate(alphabet):
 6 tuv
 7 wxyz
 ```
+---
+*(2941_크로아티아 알파벳 문제 中)*
+
+**# `map(함수, 리스트)`을 사용하여 반복문 한 줄로 줄이기**
+
+Ex) 리스트의 모든 요소를 정수로 변환할 때
+```
+a = [1.2, 2.5, 3.7, 4.6]
+
+# 1. for문 이용
+for i in range(len(a)):
+     a[i] = int(a[i])
+
+# 2. map이용
+a = list(map(int, a))
+```
+문제에 적용
+```
+term = 'ddz=z='
+map(term.count,['-','=','lj','nj','dz='])
+
+# 결과 : [0, 2, 0, 0, 1]
+```
+* 입력받은 단어에서 list속의 요소를 카운트 한다.
+* term.count('-'), term.count('='), ... 수행하여 list로 반환
