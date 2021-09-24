@@ -8,7 +8,6 @@ for i in range(num):
         k+=1
         if x >= y-1:
             break
-        
     
     print(k)
 
