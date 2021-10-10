@@ -16,7 +16,7 @@ def eratos_prime_list(n):
     eratos = [1] * (2 * n + 1)
     eratos[0] = 0
     eratos[1] = 0
-    for i in range(2, int(len(eratos) ** 1/2)):
+    for i in range(2, int(len(eratos) ** 1/2)+1):
         if eratos[i]==1:
             # i의 배수를 모두 제외
             for j in range(i + i, len(eratos), i):
