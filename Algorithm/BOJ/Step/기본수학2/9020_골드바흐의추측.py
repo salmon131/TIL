@@ -15,27 +15,16 @@ def eratos_prime_list(n):
     return eratos
 
 def goldbach_partition(n):
-    # n-2까지의 소수의 set을 생성
-    eratos = eratos_prime_list(n-2)
-    prime_list = [i for i in range(len(eratos)) if eratos[i]==1]
-
-    min_diff = 9999
-    gold_set : List
-    for prime in prime_list:
-        if prime > n//2:
-            break
-        a = prime
-        b = n - a
-        if b in prime_list:
-            i = prime_list.index(a)
-            j = prime_list.index(b)
-            diff = abs(i-j)
-            if diff < min_diff:
-                min_diff = diff
-                gold_set = [i, j]
-
-    return prime_list[gold_set[0]], prime_list[gold_set[1]]
-
+    # n까지의 소수의 set을 생성
+    eratos = eratos_prime_list(n)
+    a, b = n//2, n//2
+    while True:
+        # 둘 다 소수면 return
+        if eratos[a]==1 and eratos[b]==1:
+            return a, b
+        else:
+            a -= 1
+            b += 1
 
 n = int(input())
 for i in range(n):
