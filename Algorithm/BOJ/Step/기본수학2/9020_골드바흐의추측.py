@@ -1,6 +1,3 @@
-
-from typing import List
-
 # 에라토스의 체를 이용한 소수 찾기
 def eratos_prime_list(n):
     eratos = [1] * n
