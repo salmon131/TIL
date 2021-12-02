@@ -1,10 +1,3 @@
-# Spark Overview
-
-Date Created: November 22, 2021 12:05 AM
-Status: Short Term
-
-# 빅데이터 분석의 시초
-
 # MapReduce
 
 - Map과 Reduce 연산을 조합하여 클러스터에서 실행, 큰 데이터를 처리
@@ -20,9 +13,9 @@ Status: Short Term
 
 - HDFS 디스크에서 파일을 읽고 계산 후 중간 결과를 `디스크`에 write 하는 과정을 반복
 
-[디스크와 파티션 개념](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/%E1%84%83%E1%85%B5%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%91%E1%85%A1%E1%84%90%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%80%E1%85%A2%E1%84%82%E1%85%A7%E1%86%B7%20fd7e52aed3ec4040aaa9eb42b204630f.md)
+[디스크와 파티션 개념](https://www.notion.so/fd7e52aed3ec4040aaa9eb42b204630f)
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb49a325c-bbb8-4ce7-958f-fff3bd9a8948%2FUntitled.png?table=block&id=8a677650-b021-4b4b-9692-43cdd8adb756&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 # Apache Spark
 
@@ -38,11 +31,11 @@ Status: Short Term
 - spark에서는 중간 결과들이 `디스크` 가 아닌 `메모리` 로 대체
 - 쿼리할 때 마다 처음부터 읽어오기보다는 한번 램에 올려놓고 그 다음에 쿼리쿼리쿼리!
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%201.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F1bba4b7f-e484-4eee-a0aa-fcf38bc90ed3%2FUntitled.png?table=block&id=a4e7e1c4-4375-4bdd-8e22-02359afb6575&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ### Hadoop MapReduce → Spark
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%202.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9c688a85-bf8f-4b83-9b98-a4e4554b639d%2FUntitled.png?table=block&id=722efcd4-8781-432b-ac62-865886164742&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 **Map Reduce**
 
@@ -71,7 +64,7 @@ Java로만 되어있고 Batch processing 작업이 `Hadoop file system` 이라�
 - 부모로부터 어떻게 만들어졌는지 계보(lineage)만 기록해도 fault-tolerant
 - lineage계보를 `DAG` (directed acyclic graph)로 디자인
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%203.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fbd1dca55-bc66-4adb-8993-059aef83eff0%2FUntitled.png?table=block&id=93069432-d44d-456a-a923-904968069628&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 > 어떻게 만들어지는지 계보를 다 그려놓은 상태에서 즉 대강의 Execution Plan이 다 만들어진 상태에서 뒤에 실행하므로 자원이 배치된, 배치될 상황을 미리 고려해서 최적의 코스로 돌 수 있다.
 > 
@@ -87,7 +80,7 @@ Java로만 되어있고 Batch processing 작업이 `Hadoop file system` 이라�
 - spark을 만든 개발자들이 차린 회사
 - spark기반의 data anaytics platform을 만든다.
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%204.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F60a5b734-9187-45a5-9ca9-268129a2ddce%2FUntitled.png?table=block&id=882371c5-2a86-4205-b239-941b7fdd4dcc&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 - spark 은 자동차 엔진 , databricks는 자동차 한대로 비유할 수 있겠다.
 
@@ -95,12 +88,12 @@ Java로만 되어있고 Batch processing 작업이 `Hadoop file system` 이라�
 
 - 스파크 v1에서 발표한 RDD의 단점을 개선한 것이 스파크 v2에서 발표한 Dataset과 DataFrame
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%205.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc160c0b4-fda6-4bdb-a147-efb7d7461e55%2FUntitled.png?table=block&id=69a1bc69-0849-4824-b5e8-f0abf7ccde56&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 - 스파크 2.0에서 데이터 프레임과 데이터셋을 통합
 - 스칼라 API에서 Dataset[Row]는 DataFrame을 의미
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%206.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3f51bbc8-e2c6-4b8b-8492-ee2eb87e4436%2FUntitled.png?table=block&id=0c6cf3d5-d3b5-42d3-9e1e-11c99256ebdb&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 🛠️ Spark Application 개발 시
 
@@ -155,7 +148,7 @@ peopleDS.select("name").write.format("json").option("compression", "snappy").sav
 - `마스터-슬레이브` 구조
 - 작업을 관장하는 `Driver` 와 실제작업이 동작하는 `Executor` 로 구성
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%207.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fae469ab7-129a-4e2b-95d9-21a55e713a15%2FUntitled.png?table=block&id=b11ee20a-cba4-4b9d-8133-dceaebc4262a&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ### Driver
 
@@ -194,7 +187,7 @@ peopleDS.select("name").write.format("json").option("compression", "snappy").sav
     - Executor에서 실행되는 실제 작업
     - 데이터를 읽거나 필터링
 
-![Untitled](Spark%20Overview%20092e16535dfc462c8b05afb0a4aedf94/Untitled%208.png)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F95b9b9c3-8d3f-4fa5-a760-b6a505ace2f6%2FUntitled.png?table=block&id=1735f5ca-3efe-474d-afe8-ef3ce5b1e6e6&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1540&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ## 클러스터 매니저
 
