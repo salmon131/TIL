@@ -27,19 +27,19 @@
 
 문서를 특정 길이의 벡터로 표현하여 유사성을 계산하고 고차원의 피처를 차원 축소하여 나타냄
 
-1. 추천 (Recommendation)
+2. 추천 (Recommendation)
 
-![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fefbbeabc-e0ba-4239-b155-3a31f54398cc%2FUntitled.png?table=block&id=0ba5a235-7017-41c8-ad09-27b27969592d&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1530&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
+<center><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fefbbeabc-e0ba-4239-b155-3a31f54398cc%2FUntitled.png?table=block&id=0ba5a235-7017-41c8-ad09-27b27969592d&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1530&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2" width="60%" height="40%"></center>
 
 가볼만한 곳으로 뜨는 여행지들은 사용자의 블로그에 대한 텍스트 본문을 분석하여 가장 긍정적인 뉘앙스가 많았던 여행지 순으로 보여주는 것
 
-![맛집 랭킹을 보여주는 다이닝 코드 앱](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F601b1e68-bf5d-4fa5-ad9c-4f5e9e701da1%2FUntitled.png?table=block&id=75e12514-5d1a-4904-95f9-4ca5fd6c0a71&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1530&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
+<center><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F601b1e68-bf5d-4fa5-ad9c-4f5e9e701da1%2FUntitled.png?table=block&id=75e12514-5d1a-4904-95f9-4ca5fd6c0a71&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=1530&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2" width="50%" height="50%"></center>
 
 맛집 랭킹을 보여주는 다이닝 코드 앱
 
 광고성 블로그는 필터링하고 인플루언서들의 영향력을 크게 반영한 서비스
 
-1. 질의응답 (Question Answering)
+3. 질의응답 (Question Answering)
 
 구글에서는 위키 데이터를 통해 질문이 주어지면 답이 어디에 있는지 찾아가는 방식으로 QA 데이터를 생성
 
@@ -49,7 +49,7 @@
 
 특정 task에 대해 sota에 가까운 성능을 나타내는 논문들, 혹은 해당하는 github 코드를 공유하는 site
 
-1. 챗봇 (Dialogue system)
+4. 챗봇 (Dialogue system)
 
 QA의 궁극적 목적은 대화형 시스템을 만드는 것
 
@@ -77,6 +77,6 @@ QA의 궁극적 목적은 대화형 시스템을 만드는 것
 - 어느 정도의 포맷이 존재
 - research papers, legal memoranda, news stories, etc.
 
-1. Semi-structured
+2. Semi-structured
 - weakly structured 보다는 좀더 포맷이 확장
 - E-mail, HTML/XML web pages, pdf files, etc.
