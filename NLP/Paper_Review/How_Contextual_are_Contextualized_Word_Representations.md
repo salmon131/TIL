@@ -28,7 +28,7 @@
 
 # 1. Introduction
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#ac62a41489cc419b8d9184ad03be87ea)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F1c8e18f9-de69-46ac-a2b3-e5973cb509aa%2FUntitled.png?table=block&id=ac62a414-89cc-419b-8d91-84ad03be87ea&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 Text Representation을 위한 가장 기초적이고 직관적인 아이디어는 Bag of word와 같이 count 기반으로 representation을 만들어 내는 것이다. 두 번째는 Word2Vec이나 Glove와 같이 Distributed된 representation을 생성하는 것이고, 여기서 더 universal 한 (전지전능한) 표현을 만들어내는 BERT, GPT 등이 있다.
 
@@ -56,11 +56,11 @@ Static word embedding을 contextualized word representation으로 바꾸면 대�
 
 1.  하나의 단어에 할당할 수 있는 표현이 무수히 많다?
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#b7b8a1bad9714078a03c8593d9d00131)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F386a467d-3641-4d77-80c5-2e7c92b5489d%2FUntitled.png?table=block&id=b7b8a1ba-d971-4078-a03c-8593d9d00131&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
-1. 하나의 단어에 할당할 수 있는 표현은 유한하고, 기본적으로 하나의 값이 할당되는 것인가?
+2. 하나의 단어에 할당할 수 있는 표현은 유한하고, 기본적으로 하나의 값이 할당되는 것인가?
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#7d24af88470e4efd85d835fbc9c74d82)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2f68375d-8f6d-49c3-b121-01c125d24042%2FUntitled.png?table=block&id=7d24af88-470e-4efd-85d8-35fbc9c74d82&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 논문은 해당 논제에 대해 ELMo, BERT, GPT-2의 각 레이어에서 representation의 기하학적 표현에 관한 연구를 진행함으로서 답을 찾았다.
 
@@ -72,7 +72,7 @@ Static word embedding을 contextualized word representation으로 바꾸면 대�
 
 ## 3.1 Contextualizing Models
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#d3ba832d058a40ce851890237d0d72a3)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb17f4369-54ea-4e81-aca7-607f720890db%2FUntitled.png?table=block&id=d3ba832d-058a-40ce-8518-90237d0d72a3&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ### 1. ELMo
 
@@ -94,7 +94,7 @@ BERT와 GPT2는 pair한 비교를 위해 각각 12개의 hidden layer로 셋팅�
 
 STS 데이터셋은 sentence pair가 존재할 때 두 문장의 similarity를 계산하는 방식?
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#167517b576c24cbcadfb4c938ee378ca)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9363e442-2165-4155-8d36-8b0f7b0ff15d%2FUntitled.png?table=block&id=167517b5-76c2-4cbc-adfb-4c938ee378ca&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 두 문장에서 똑같이 dog 이라는 단어가 사용되었지만 문장이 다르기 때문에 dog의 의미가 같을수도, 다를 수도 있다. 만약 두 벡터가 같다면 contextualization이 되지 않았다고 추론하고, 두 벡터가 다르다면 조금 contexualization이 되었다고 해석할 수 있다.
 
@@ -110,7 +110,7 @@ STS 데이터셋은 sentence pair가 존재할 때 두 문장의 similarity를 �
 
 : 주어진 모델의 각 레이어에서, 동일한 단어가 모든 context에서 가지는 contextualized representation의 평균 cosine similarity
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#4f116b6a59c94e7db1fea7eef22be42a)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe10dc0b8-6578-4f04-bae4-2781bd445c91%2FUntitled.png?table=block&id=4f116b6a-59c9-4e7d-b1fe-a7eef22be42a&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 - $w$ : word in sentence
 - {${{s1,s2,...,sn}}$} : set of sentences
@@ -120,7 +120,7 @@ STS 데이터셋은 sentence pair가 존재할 때 두 문장의 similarity를 �
     
 - $f_l(s,i)$ : layer l 에서 s[i] 에 mapping되는 function
 
-![e.g. high self-sim for ‘dog’ across context](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#8f27b6b771134af78687331ab128dd2f)
+<center><img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F989c493a-3458-4907-9d96-9040b3b70f48%2FUntitled.png?table=block&id=8f27b6b7-7113-4af7-8687-331ab128dd2f&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2" width="60%" height="40%"></center>
 
 e.g. high self-sim for ‘dog’ across context
 
@@ -131,7 +131,7 @@ e.g. high self-sim for ‘dog’ across context
 > 즉, 특정 단어의 SelfSim이 낮을수록 더욱 문맥화된 표현이라고 볼 수 있다. BERT의 경우 layer를 거칠수록 SelfSim이 낮아짐을 확인하였다.
 > 
 
-![Example : BERT](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#dc327a8c492f49889b3604ab5e1f38f2)
+![Example : BERT](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa7692480-f8e6-4fee-afb5-95ed4521a4a6%2FUntitled.png?table=block&id=dc327a8c-492f-4988-9b36-04ab5e1f38f2&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 Example : BERT
 
@@ -139,15 +139,15 @@ Example : BERT
 
 : 동일한 문장 (같은 문맥) 에서 등장하는 모든 단어들 사이의 평균적인 cosine similarity
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#f1c30445ab064ef5ba8219471766e182)
+<center><img src=https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F55667e4c-7251-4452-919c-d69980cb7718%2FUntitled.png?table=block&id=f1c30445-ab06-4ef5-ba82-19471766e182&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2></center>
 
-![e.g. low intra-sim for ‘The dog is wet’](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#47f4ec9158ce4a08b5e960059be2abcf)
+<center><img src=https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff9c2e43f-9c7d-4d37-93fc-546d6b9a3716%2FUntitled.png?table=block&id=47f4ec91-58ce-4a08-b5e9-60059be2abcf&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2 width="60%" height="40%"></center>
 
 e.g. low intra-sim for ‘The dog is wet’
 
 예를 들어 낮은 intra similarity를 가지는 문장이 있고, 문장을 구성하는 단어들이 The, dog, is, wet 이라면 각각의 단어가 상이한 공간으로 맵핑되고 있기 때문에 intra similarity가 낮은 상황이라고 말할 수 있다.
 
-![Example : BERT, GPT](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#52ca817762f2413f8420d35cefca22a6)
+<center><img src=https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F417495e7-181d-457d-93dd-5034466fe7d6%2FUntitled.png?table=block&id=52ca8177-62f2-413f-8420-d35cefca22a6&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2></center>
 
 Example : BERT, GPT
 
@@ -170,7 +170,7 @@ Intra Sim은 벡터 공간에서 context-specific하게 벡터가 조정되는�
 
 즉, 첫 번째 요소가 가지는 분산에 대해 특징값을 찾아내는 과정이다.
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#e6646ce74a3842b88519759b5d995064)
+<center><img src=https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F049aeec0-4252-464d-9f2f-9809344981c5%2FUntitled.png?table=block&id=e6646ce7-4a38-42b8-8519-759b5d995064&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2></center>
 
 - $f_l(s,i)$를 layer l 에서 s[i] 에 mapping되는 function
 - $[f_l(s_1, i_1), ... , f_l(s_n, i_n)]$ : occurrence matrix
@@ -196,11 +196,13 @@ MEV가 1에 가깝다면 static embedding과 유사하고, 0에 가깝다면  co
 
 ## 4.1 (An)Isotropy
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#573ca1430423439fa22d618204521429)
+<center><img src=https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F049aeec0-4252-464d-9f2f-9809344981c5%2FUntitled.png?table=block&id=e6646ce7-4a38-42b8-8519-759b5d995064&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2></center>
 
 **Findings**
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#1301519b2664402eb1eab537797197d2)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc4002e98-7900-4944-b4e3-ab55ce50e790%2FUntitled.png?table=block&id=573ca143-0423-439f-a22d-618204521429&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
+
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fe9aa4647-2767-4422-aaf4-08cea93eac03%2FUntitled.png?table=block&id=1301519b-2664-402e-b1ea-b537797197d2&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ✓ Contextualized representations는 input이 아닌 layer에서 anisotropic임
 
@@ -210,7 +212,7 @@ MEV가 1에 가깝다면 static embedding과 유사하고, 0에 가깝다면  co
 
 논문에서는 이 Isotropy에 대해 확인해 볼 수 있는 실험을 진행했는데, radom 하게 word를 sampling 한 다음 각각 word에 대해 cosine-similarity의 평균을 확인해보았다.
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#171d655043634e97999679945d29192b)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F91ff0ffe-3ade-40a2-898f-700c96d98ec1%2FUntitled.png?table=block&id=171d6550-4363-4e97-9996-79945d29192b&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 ELMo의 경우 2개의 layer만 있기 때문에 전반적으로 깊은 양상을 확인할 수는 없지만 다른 두 모델에 비해서는 낮은 값을 가지고 있는 것을 확인할 수 있다.
 
@@ -222,7 +224,7 @@ GPT와 BERT는 모두 output layer에 가까워질 수록 cosine-similarity가 �
 
 1. Self-Similarity
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#82e79f0811614c539f380e54d03de160)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3a7fef9b-e994-4a3c-a543-08ee51735c41%2FUntitled.png?table=block&id=82e79f08-1161-4c53-9f38-0e54d03de160&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 Self-Similarity의 관점에서도 상위 layer에 가까워질수록 더욱 Contextualized representations이 생성되었음을 확인할 수 있다. 특히 문장에 자주 등장하는 stopword의 경우 굉장히 낮은 self-similarity를 보였다.
 
@@ -231,7 +233,7 @@ Self-Similarity의 관점에서도 상위 layer에 가까워질수록 더욱 Con
 
 2. Intra sentence Similarity
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#8964ecd49b374348bf98b8cac86c3e9f)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F0132e812-ff18-40b5-bbbe-119788d41011%2FUntitled.png?table=block&id=8964ecd4-9b37-4348-bf98-b8cac86c3e9f&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 해당 실험의 결과는 Contextualized representation을 생성한다고 알려진 세 가지 모델의 representation은 명백히 다름을 보여주고 있다.
 
@@ -261,7 +263,7 @@ Transformer 구조를 따르는 BERT와 GPT도 굉장히 다른 모습의 intra 
 
 3. MEV
 
-![Untitled](https://www.notion.so/How-Contextual-are-Contextualized-Word-Representations-Comparing-the-Geometry-of-BERT-ELMo-and-GP-03a71ba8fdf343a6aed7ab04606c316c#1da4121f6f6445b098608a7839413bfd)
+![Untitled](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F2dd1086b-b20f-4191-99da-e7201fd77994%2FUntitled.png?table=block&id=1da4121f-6f64-45b0-9860-8a7839413bfd&spaceId=3aa9293f-6175-4ef8-ab1f-5ac6c7c6e16d&width=2000&userId=5559e7d5-3152-49d5-b79d-7aabc7a64dce&cache=v2)
 
 논문에서는 Contextualized representation들의 분산이 5%보다 작을경우 static으로 간주하고 있다.  이 때 5%는 threshold이며 실험적으로 설정한 best case scenario값이라고 한다.
 
