@@ -1,21 +1,21 @@
 import sys
 
-# '''my code'''
-# N, L = map(int, sys.stdin.readline().split())
-# leaks = map(int, sys.stdin.readline().split())
-# leaks = sorted(leaks)
+'''my code'''
+N, L = map(int, sys.stdin.readline().split())
+leaks = map(int, sys.stdin.readline().split())
+leaks = sorted(leaks)
 
-# tape_cnt = 1
-# tape_start = leaks[0] - 0.5
-# tape_end = tape_start + L
+tape_cnt = 1
+tape_start = leaks[0] - 0.5
+tape_end = tape_start + L
 
-# for i, x in enumerate(leaks):
-#     if x + 0.5 > tape_end:
-#         tape_cnt += 1
-#         tape_start = x - 0.5
-#         tape_end = tape_start + L
+for i, x in enumerate(leaks):
+    if x + 0.5 > tape_end:
+        tape_cnt += 1
+        tape_start = x - 0.5
+        tape_end = tape_start + L
 
-# print(tape_cnt)
+print(tape_cnt)
 
 '''short code example'''
 I= lambda:map(int,input().split()) # 입력 함수는 한번만 생성하여 중복 제거
