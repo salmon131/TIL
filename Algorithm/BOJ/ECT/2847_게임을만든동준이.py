@@ -4,7 +4,7 @@ arr = [int(sys.stdin.readline().strip()) for _ in range(N)]
 arr.reverse()
 
 cnt = 0 
-num = arr[-1] - 1
+num = arr[0] - 1
 for i in arr[1:]:
     if i > num:
         cnt += i - num
