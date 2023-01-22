@@ -29,5 +29,8 @@ for i in range(len(k)):
             answer += tmp
         stack.pop()
         tmp //= 3
-
-print(answer)
+        
+if stack:
+    print(0)
+else:
+    print(answer)
