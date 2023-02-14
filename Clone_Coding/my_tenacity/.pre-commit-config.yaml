@@ -26,4 +26,4 @@ repos:
   rev: 6.0.0
   hooks:
     - id: flake8
-      args: ["-j8", "--ignore=E501"]
+      args: ["-j8", "--ignore=E501,F401"]
