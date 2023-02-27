@@ -1,52 +1,52 @@
 import sys
 from collections import deque
 
-queue = deque([])
-arr = []
-dx = [1, 0, -1, 0]
-dy = [0, 1, 0, -1]
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
 
-N, M = map(int, sys.stdin.readline().split())
-for _ in range(N):
-    arr.append(list(sys.stdin.readline().strip()))
+R, C = map(int, sys.stdin.readline().split())
+arr = [list(sys.stdin.readline()) for _ in range(R)]
+f_queue, j_queue = deque([]), deque([])
+f_visited, j_visited = [[-1] * C for _ in range(R)], [[-1] * C for _ in range(R)]
 
-for i in range(N):
-    for j in range(M):
-        if arr[i][j] == 'J':
-            queue.append(['J', i, j])
-        if arr[i][j] == 'F':
-            queue.append(['F', i, j])
+for i in range(R):
+    for j in range(C):
+        if arr[i][j] == "J":
+            j_queue.append([i, j])
+            j_visited[i][j] = 0
+        if arr[i][j] == "F":
+            f_queue.append([i, j])
+            f_visited[i][j] = 0
+
 
 def bfs():
-    while queue:
-        k, i, j = queue.popleft()
-        for dir in range(4): # 상하좌우 탐색
-            nx = i + dx[dir]
-            ny = j + dy[dir]
-            if k == 'J':
-                if 0 <= nx < N and 0 <= ny < M and arr[nx][ny] == '.':
-                    arr[nx][ny] = arr[i][j] + 1 if isinstance(arr[i][j], int) else 1
-                    queue.append(['J', nx, ny])
-            else: # 'F'
-                if 0 <= nx < N and 0 <= ny < M and arr[nx][ny] not in ['F', '#']:
-                    arr[nx][ny] = 'F'
-                    queue.append(['F', nx, ny])
+    while f_queue:
+        x, y = f_queue.popleft()
+        for dir in range(4):
+            nx = x + dx[dir]
+            ny = y + dy[dir]
+            if 0 <= nx < R and 0 <= ny < C:
+                if f_visited[nx][ny] == -1 and arr[nx][ny] != "#":  # 아직 방문하지 않았고 벽이 아니면
+                    f_visited[nx][ny] = f_visited[x][y] + 1
+                    f_queue.append([nx, ny])
 
-bfs()
-print(arr)
-result = None
+    while j_queue:
+        x, y = j_queue.popleft()
+        for dir in range(4):
+            nx = x + dx[dir]
+            ny = y + dy[dir]
+            if 0 <= nx < R and 0 <= ny < C:
+                if j_visited[nx][ny] == -1 and arr[nx][ny] != "#":  # 아직 방문하지 않았고 벽이 아니면
+                    if (
+                        f_visited[nx][ny] == -1 or 
+                        j_visited[x][y] + 1 < f_visited[nx][ny]
+                    ):  # 불이 오지 않았거나 불보다 앞질러있으면
+                        j_visited[nx][ny] = j_visited[x][y] + 1
+                        j_queue.append([nx, ny])
+            else:  # 범위를 벗어난 것이 큐에 있었다면 탈출 조건에 해당
+                return j_visited[x][y] + 1
 
-for i in range(0, N, N - 1):
-    for j in range(M):
-        if isinstance(arr[i][j], int):
-            result = min(arr[i][j], result) if result else arr[i][j]
+    return "IMPOSSIBLE"
 
-for i in range(N):
-    for j in range(0, M, M - 1):
-        if isinstance(arr[i][j], int):
-            result = min(arr[i][j], result) if result else arr[i][j]
 
-if result:
-    print(result + 1)   
-else:
-    print('IMPOSSIBLE')
+print(bfs())
