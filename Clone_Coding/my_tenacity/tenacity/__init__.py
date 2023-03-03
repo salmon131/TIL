@@ -8,6 +8,46 @@ from abc import ABC, abstractmethod
 from concurrent import futures
 from inspect import iscoroutinefunction
 
+from .after import after_log, after_nothing
+from .before import before_log, before_nothing
+from .before_sleep import before_sleep_log, before_sleep_nothing
+from .retry import (
+    retry_all,
+    retry_always,
+    retry_any,
+    retry_base,
+    retry_if_exception,
+    retry_if_exception_cause_type,
+    retry_if_exception_message,
+    retry_if_exception_type,
+    retry_if_not_exception_message,
+    retry_if_not_exception_type,
+    retry_if_not_result,
+    retry_if_result,
+    retry_never,
+    retry_unless_exception_type,
+)
+from .stop import (
+    stop_after_attempt,
+    stop_after_delay,
+    stop_all,
+    stop_any,
+    stop_never,
+    stop_when_event_set,
+)
+from .wait import (
+    wait_chain,
+    wait_combine,
+    wait_exponential,
+    wait_exponential_jitter,
+    wait_fixed,
+    wait_incrementing,
+    wait_none,
+    wait_random,
+)
+from .wait import wait_random_exponential
+from .wait import wait_random_exponential as wait_full_jitter
+
 try:
     import tornado
 except ImportError:
@@ -15,6 +55,10 @@ except ImportError:
 
 if t.TYPE_CHECKING:
     import types
+
+    from .retry import RetryBaseT
+    from .stop import StopBaseT
+    from .wait import WaitBaseT
 
 WrappedFnReturnT = t.TypeVar("WrappedFnReturnT")
 WrappedFn = t.TypeVar("WrappedFn", bound=t.Callable[..., t.Any])
@@ -127,9 +171,10 @@ class Future(FutureGenericT):
     @property
     def failed(self) -> bool:
         """Return whether a exception is being held in this future."""
+        return self.exception() is not None
 
     @classmethod
-    def constuct(
+    def construct(
         cls, attempt_number: int, value: t.Any, has_exception: bool
     ) -> "Future":
         """Construct a new Future object."""
@@ -161,7 +206,7 @@ class BaseRetrying(ABC):
         after: t.Callable[["RetryCallState"], None] = after_nothing,
         before_sleep: t.Optional[t.Callable[["RetryCallState"], None]] = None,
         reraise: bool = False,
-        retry_error_cls: t.Type[RetryError] = RetyError,
+        retry_error_cls: t.Type[RetryError] = RetryError,
         retry_error_callback: t.Optional[t.Callable[["RetryCallState"], t.Any]] = None,
     ):
         self.sleep = sleep
@@ -172,6 +217,7 @@ class BaseRetrying(ABC):
         self.after = after
         self.before_sleep = before_sleep
         self.reraise = reraise
+        self._local = threading.local()
         self.retry_error_cls = retry_error_cls
         self.retry_error_callback = retry_error_callback
 
@@ -287,7 +333,7 @@ class BaseRetrying(ABC):
 
         if self.before_sleep is not None:
             self.before_sleep(retry_state)
-
+        sleep = 0
         return DoSleep(sleep)
 
     def __iter__(self) -> t.Generator[AttemptManager, None, None]:
@@ -410,7 +456,7 @@ class RetryCallState:
             exception = self.outcome.exception()
             result = f"failed ({exception.__class__.__name__} {exception})"
         else:
-            result = f"retured {self.outcome.result()}"
+            result = f"returned {self.outcome.result()}"
 
         slept = float(round(self.idle_for, 2))
         clsname = self.__class__.__name__
@@ -469,3 +515,60 @@ def retry(*dargs: t.Any, **dkw: t.Any) -> t.Any:
             return r.wraps(f)
 
         return wrap
+
+
+__all__ = [
+    "retry_base",
+    "retry_all",
+    "retry_always",
+    "retry_any",
+    "retry_if_exception",
+    "retry_if_exception_type",
+    "retry_if_not_exception_type",
+    "retry_if_not_result",
+    "retry_if_result",
+    "retry_never",
+    "retry_unless_exception_type",
+    "retry_if_exception_cause_type",
+    "retry_if_exception_message",
+    "retry_if_not_exception_message",
+    # "sleep",
+    # "sleep_using_event",
+    "stop_after_attempt",
+    "stop_after_delay",
+    "stop_all",
+    "stop_any",
+    "stop_never",
+    "stop_when_event_set",
+    "wait_chain",
+    "wait_combine",
+    "wait_exponential",
+    "wait_fixed",
+    "wait_incrementing",
+    "wait_none",
+    "wait_random",
+    "wait_random_exponential",
+    "wait_full_jitter",
+    "wait_exponential_jitter",
+    "before_log",
+    "before_nothing",
+    "after_log",
+    "after_nothing",
+    "before_sleep_log",
+    "before_sleep_nothing",
+    "retry",
+    "WrappedFn",
+    "TryAgain",
+    "NO_RESULT",
+    "DoAttempt",
+    "DoSleep",
+    "BaseAction",
+    "RetryAction",
+    "RetryError",
+    "AttemptManager",
+    "BaseRetrying",
+    "Retrying",
+    "Future",
+    "RetryCallState",
+    # "AsyncRetrying",
+]
