@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from logging import Logger
 from typing import Any, Dict, Optional
 
+from semantic_kernel.kernel_config import KernelConfig
+from semantic_kernel.memory.semantic_text_memory_base import SemanticTextMemoryBase
+
 
 class KernelBase(ABC):
     @property

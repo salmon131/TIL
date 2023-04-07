@@ -5,9 +5,7 @@ from semantic_kernel.ai.embeddings.embedding_generator_base import(
 )
 from semantic_kernel.memory.memory_query_result import MemoryQueryResult
 from semantic_kernel.memory.memory_record import MemoryRecord
-
-class MemoryStoreBase:
-    pass
+from semantic_kernel.memory.memory_store_base import MemoryStoreBase
 
 from semantic_kernel.memory.semantic_text_memory_base import SemanticTextMemoryBase
 
