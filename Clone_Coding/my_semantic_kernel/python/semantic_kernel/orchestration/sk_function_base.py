@@ -2,18 +2,12 @@ from abc import ABC, abstractmethod
 from logging import Logger
 from typing import TYPE_CHECKING, Callable, Optional
 
-class CompleteRequestSettings:
-    pass
-
-class TextCompletionClientBase:
-    pass
-
+from semantic_kernel.ai.complete_request_settings import CompleteRequestSettings
+from semantic_kernel.ai.text_completion_client_base import TextCompletionClientBase
 from semantic_kernel.memory.semantic_text_memory_base import SemanticTextMemoryBase
 from semantic_kernel.orchestration.context_variables import ContextVariables
 from semantic_kernel.orchestration.sk_context import SKContext
-
-class FunctionView:
-    pass
+from semantic_kernel.skill_definition.function_view import FunctionView
 
 
 if TYPE_CHECKING:
