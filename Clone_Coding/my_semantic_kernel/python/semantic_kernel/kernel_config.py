@@ -1,19 +1,14 @@
 from typing import TYPE_CHECKING, Callable, Dict, List, Optional, Type, TypeVar, Union
 
-class ChatCompletionClientBase:
-    pass
-
-class EmbeddingGeneratorBase:
-    pass
-
-class TextCompletionClientBase:
-    pass
-
-class PassThroughWithoutRetry:
-    pass
-
-class RetryMechanism:
-    pass
+from semantic_kernel.ai.chat_completion_client_base import ChatCompletionClientBase
+from semantic_kernel.ai.embeddings.embedding_generator_base import(
+    EmbeddingGeneratorBase,
+)
+from semantic_kernel.ai.text_completion_client_base import TextCompletionClientBase
+from semantic_kernel.reliability.pass_through_without_retry import (
+    PassThroughWithoutRetry,
+)
+from semantic_kernel.reliability.retry_mechanism import RetryMechanism
 
 if TYPE_CHECKING:
     from semantic_kernel.kernel_base import KernelBase

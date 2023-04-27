@@ -11,11 +11,8 @@ from template_engine.protocols.prompt_templating_engine import (
     PromptTemplatingEngine,
 )
 from template_engine.protocols.text_renderer import TextRenderer
-# from template_engine.template_tokenizer import TemplateTokenizer
+from template_engine.template_tokenizer import TemplateTokenizer
 from utils.null_logger import NullLogger
-    
-class TemplateTokenizer:
-    ...
     
 
 class PromptTemplateEngine(PromptTemplatingEngine):
