@@ -14,7 +14,7 @@ from semantic_kernel.memory.semantic_text_memory_base import SemanticTextMemoryB
 from semantic_kernel.orchestration.context_variables import ContextVariables
 from semantic_kernel.orchestration.delegate_handlers import DelegateHandlers
 from semantic_kernel.orchestration.delegate_inference import DelegateInference
-from semantic_kernel.orchestration.delegat_types import DelegateTypes
+from semantic_kernel.orchestration.delegate_types import DelegateTypes
 from semantic_kernel.orchestration.sk_context import SKContext
 from semantic_kernel.orchestration.sk_function_base import SKFunctionBase
 from semantic_kernel.semantic_functions.chat_prompt_template import ChatPromptTemplate
@@ -65,3 +65,75 @@ class SKFunction(SKFunctionBase):
                         param["name"], param["description"], param["default_value"]
                     )
                 )
+
+        if hasattr(method, "__sk_function_input_description__"):
+            input_param = ParameterView(
+                "input",
+                method.__sk_function_input_description__,
+                method.__sk_function_input_default_value__,
+            )
+            parameters = [input_param] + parameters
+
+        return SKFunction(
+            delegate_type=DelegateInference.infer_delegate_type(method),
+            delegate_function=method,
+            parameters=parameters,
+            description=method.__sk_function_description__,
+            skill_name=skill_name,
+            function_name=method.__sk_function_name__,
+            is_semantic=False,
+            log=log,
+        )
+    
+    @staticmethod
+    def from_semantic_config(
+        skill_name: str,
+        function_name: str,
+        function_config: SemanticFunctionConfig,
+        log: Optional[Logger] = None,
+    ) -> "SKFunction":
+        if function_config is None:
+            raise ValueError("Function configuration cannot be `None`")
+        
+        async def _local_func(client, request_settings, context):
+            if client is None:
+                raise ValueError("AI LLM service cannot be `None`")
+            
+            try:
+                if function_config.has_chat_prompt:
+                    as_chat_prompt = cast(
+                        ChatPromptTemplate, function_config.prompt_template
+                    )
+
+                    messages = await as_chat_prompt.render_messages_async(context)
+                    completion = await client.complete_chat_async(
+                        messages, request_settings
+                    )
+
+                    _, content = messages[-1]
+                    as_chat_prompt.add_user_message(content)
+                    as_chat_prompt.add_assistant_message(completion)
+
+                    context.variables.update(completion)
+                else:
+                    prompt = await function_config.prompt_template.render_async(context)
+                    completion = await client.complete_async(prompt, request_settings)
+                    context.variables.update(completion)
+            except Exception as e:
+                context.fail(str(e), e)
+            
+            return context
+
+        return SKFunction(
+            delegate_type=DelegateTypes.ContextSwitchInSKContextOutTaskSKContext,
+            delegate_function=_local_func,
+            parameters=function_config.prompt_template.get_parameters(),
+            description=function_config.prompt_template_config.description,
+            skill_name=skill_name,
+            function_name=skill_name,
+            function_name=function_name,
+            is_semantic=True,
+            log=log,
+        )
+    
+    
