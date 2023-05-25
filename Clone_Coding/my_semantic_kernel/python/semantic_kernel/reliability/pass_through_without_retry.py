@@ -1,7 +1,7 @@
 import logging
 from typing import Awaitable, Callable, TypeVar
 
-from semantic_kernel.reliability.retry_mechanism import RetryMechanism
+from semantic_kernel.reliability.retry_mechanism_base import RetryMechanism
 
 T = TypeVar("T")
 
