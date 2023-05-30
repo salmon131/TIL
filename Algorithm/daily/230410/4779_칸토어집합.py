@@ -11,13 +11,16 @@ def cantor(length):
     cantor(length // 3)
 
 while True:
-    N = sys.stdin.readline().strip()
-    if N == '':
+    try:
+        N = sys.stdin.readline().strip()
+        if N == '':
+            break
+        answer = ''
+        length = 3 ** int(N)
+        if length == 1:
+            print('-')
+            continue
+        cantor(length)
+        print(answer)
+    except EOFError:
         break
-    answer = ''
-    length = 3 ** int(N)
-    if length == 1:
-        print('-')
-        continue
-    cantor(length)
-    print(answer)
