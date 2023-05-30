@@ -15,7 +15,7 @@ class NullLogger(Logger):
     def info(self, _: str) -> None:
         pass
 
-    def wargning(self, _: str) -> None:
+    def warning(self, _: str) -> None:
         pass
 
     def error(self, _: str) -> None:

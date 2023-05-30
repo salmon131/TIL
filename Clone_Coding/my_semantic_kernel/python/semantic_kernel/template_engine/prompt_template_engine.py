@@ -1,18 +1,18 @@
 from logging import Logger
 from typing import List, Optional
 
-from orchestration.context_variables import ContextVariables
-from orchestration.sk_context import SKContext
-from template_engine.blocks.block import Block
-from template_engine.blocks.block_types import BlockTypes
-from template_engine.blocks.text_block import TextBlock
-from template_engine.protocols.code_renderer import CodeRenderer
-from template_engine.protocols.prompt_templating_engine import (
+from semantic_kernel.orchestration.context_variables import ContextVariables
+from semantic_kernel.orchestration.sk_context import SKContext
+from semantic_kernel.template_engine.blocks.block import Block
+from semantic_kernel.template_engine.blocks.block_types import BlockTypes
+from semantic_kernel.template_engine.blocks.text_block import TextBlock
+from semantic_kernel.template_engine.protocols.code_renderer import CodeRenderer
+from semantic_kernel.template_engine.protocols.prompt_templating_engine import (
     PromptTemplatingEngine,
 )
-from template_engine.protocols.text_renderer import TextRenderer
-from template_engine.template_tokenizer import TemplateTokenizer
-from utils.null_logger import NullLogger
+from semantic_kernel.template_engine.protocols.text_renderer import TextRenderer
+from semantic_kernel.template_engine.template_tokenizer import TemplateTokenizer
+from semantic_kernel.utils.null_logger import NullLogger
     
 
 class PromptTemplateEngine(PromptTemplatingEngine):
@@ -34,7 +34,7 @@ class PromptTemplateEngine(PromptTemplatingEngine):
         
         return blocks
     
-    async def render_async(self, template_text: str, context, SKContext) -> str:
+    async def render_async(self, template_text: str, context: SKContext) -> str:
         self._logger.debug(f"Rendering template: {template_text}")
         blocks = self.extract_blocks(template_text)
         return await self.render_blocks_async(blocks, context)
